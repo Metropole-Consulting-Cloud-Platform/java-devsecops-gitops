@@ -34,7 +34,7 @@ semgrep:
 trivy-filesystem:
   stage: security
   image:
-    name: aquasec/trivy:0.65.0
+    name: aquasec/trivy:0.76.0
     entrypoint: [""]
   script:
     - trivy fs --scanners vuln,secret,misconfig --severity HIGH,CRITICAL --ignore-unfixed --exit-code 1 .
@@ -59,7 +59,7 @@ container-build:
 trivy-image:
   stage: image-scan
   image:
-    name: aquasec/trivy:0.65.0
+    name: aquasec/trivy:0.76.0
     entrypoint: [""]
   before_script:
     - echo "$CI_REGISTRY_PASSWORD" | trivy registry login --username "$CI_REGISTRY_USER" --password-stdin "$CI_REGISTRY"
