@@ -9,4 +9,4 @@ resources:
   - pdb.yaml
 images:
   - name: ghcr.io/asimshahibm/java-devsecops-gitops
-    newTag: main
+    newTag: sha-9a7f50a653fc8ee31277296f43ce6257db2b1e08
