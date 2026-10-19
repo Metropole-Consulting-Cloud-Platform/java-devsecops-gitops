@@ -100,11 +100,13 @@ docker run --rm -p 8080:8080 java-devsecops-api:local
 
 The image publication uses the repository's built-in `GITHUB_TOKEN`; it does
 not require a personal access token or cloud access key. In the GitHub
-repository settings, ensure Actions can write packages and contents. After
-the first image publication, set the GHCR package visibility to **public** if
-the cluster should pull without credentials; otherwise create an
-`imagePullSecret` in the `java-devsecops` namespace using a read-only package
-credential. Never commit that credential.
+repository settings, ensure Actions can write packages and contents. The
+repository-level **Allow GitHub Actions to create and approve pull requests**
+setting is enabled so the workflow can open the reviewed GitOps pull request.
+After the first image publication, set the GHCR package visibility to
+**public** if the cluster should pull without credentials; otherwise create
+an `imagePullSecret` in the `java-devsecops` namespace using a read-only
+package credential. Never commit that credential.
 
 ## Connect Argo CD to a real Kubernetes cluster
 
